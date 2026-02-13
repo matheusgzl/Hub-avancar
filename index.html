@@ -1,0 +1,1614 @@
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hub Avançar | O Futuro dos Negócios</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+            colors: {
+              brand: {
+                dark: "#0f172a", // Slate 900
+                blue: "#1e3a8a", // Blue 900
+                gold: "#d4af37", // Gold
+                goldLight: "#f3e5ab",
+                gray: "#f8fafc", // Slate 50
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+
+      /* Gradient Text Animation */
+      .text-gold-gradient {
+        background: linear-gradient(to right, #d4af37, #f3e5ab, #d4af37);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        background-size: 200% auto;
+        animation: shine 5s linear infinite;
+      }
+
+      @keyframes shine {
+        to {
+          background-position: 200% center;
+        }
+      }
+
+      /* Reveal Animation Classes */
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s ease-out;
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Staggered delays */
+      .delay-100 {
+        transition-delay: 100ms;
+      }
+      .delay-200 {
+        transition-delay: 200ms;
+      }
+      .delay-300 {
+        transition-delay: 300ms;
+      }
+      .delay-400 {
+        transition-delay: 400ms;
+      }
+      .delay-500 {
+        transition-delay: 500ms;
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+          "react": "https://esm.sh/react@^19.2.4",
+          "react/": "https://esm.sh/react@^19.2.4/"
+        }
+      }
+    </script>
+  </head>
+  <body
+    class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-gold selection:text-white font-sans"
+  >
+    <!-- Navigation -->
+    <nav
+      id="navbar"
+      class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent"
+    >
+      <div class="container mx-auto px-6 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2 group">
+          <div
+            class="w-10 h-10 bg-brand-gold rounded-sm flex items-center justify-center transform rotate-45 group-hover:rotate-0 transition-all duration-500"
+          >
+            <span
+              class="text-brand-dark font-bold text-xl -rotate-45 group-hover:rotate-0 transition-all duration-500"
+              >H</span
+            >
+          </div>
+          <div class="flex flex-col">
+            <span
+              class="font-serif text-2xl font-bold tracking-wide text-white"
+            >
+              HUB <span class="text-brand-gold">AVANÇAR</span>
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center space-x-8">
+          <a
+            href="#sobre"
+            class="text-sm uppercase tracking-widest font-medium text-gray-300 hover:text-brand-gold transition-colors"
+            >Sobre</a
+          >
+          <a
+            href="#negocios"
+            class="text-sm uppercase tracking-widest font-medium text-gray-300 hover:text-brand-gold transition-colors"
+            >Negócios</a
+          >
+          <a
+            href="#educacao"
+            class="text-sm uppercase tracking-widest font-medium text-gray-300 hover:text-brand-gold transition-colors"
+            >Educação</a
+          >
+          <a
+            href="#clubes"
+            class="text-sm uppercase tracking-widest font-medium text-gray-300 hover:text-brand-gold transition-colors"
+            >Clubes</a
+          >
+          <a
+            href="#valey"
+            class="text-sm uppercase tracking-widest font-medium text-gray-300 hover:text-brand-gold transition-colors"
+            >Valey</a
+          >
+          <a
+            href="#arena"
+            class="text-sm uppercase tracking-widest font-medium text-gray-300 hover:text-brand-gold transition-colors"
+            >Arena</a
+          >
+          <a
+            href="#contato"
+            class="px-6 py-2 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 font-semibold text-sm uppercase tracking-widest"
+          >
+            Fale Conosco
+          </a>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <button
+          id="mobile-menu-btn"
+          class="lg:hidden text-white hover:text-brand-gold transition-colors"
+        >
+          <i data-lucide="menu" class="w-8 h-8"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="relative w-full min-h-[110vh] flex items-center justify-center overflow-hidden py-32"
+    >
+      <!-- Video Background Overlay -->
+      <div class="absolute inset-0 z-0">
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-brand-dark/90 via-brand-dark/70 to-brand-blue/60 z-10"
+        ></div>
+        <img
+          src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2301&auto=format&fit=crop"
+          alt="Hub Background"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <!-- Content -->
+      <div class="container mx-auto px-6 relative z-20 pt-20">
+        <div class="max-w-4xl">
+          <div class="reveal flex items-center gap-4 mb-6">
+            <span class="h-[1px] w-12 bg-brand-gold"></span>
+            <span
+              class="text-brand-gold font-semibold uppercase tracking-[0.2em] text-sm"
+            >
+              Ecossistema de Alta Performance
+            </span>
+          </div>
+
+          <div class="reveal delay-200">
+            <h1
+              class="font-serif text-5xl md:text-7xl font-bold text-white leading-tight mb-6"
+            >
+              Onde negócios
+              <span class="text-gold-gradient italic">evoluem</span>,<br />
+              conexões se fortalecem<br />
+              e líderes são formados.
+            </h1>
+          </div>
+
+          <div class="reveal delay-400">
+            <p
+              class="text-gray-300 text-lg md:text-xl max-w-2xl mb-10 leading-relaxed font-light"
+            >
+              O maior ecossistema empresarial da região reunindo negócios,
+              educação executiva, inovação, saúde e networking estratégico em um
+              só lugar.
+            </p>
+          </div>
+
+          <div class="reveal delay-500 flex flex-col sm:flex-row gap-4">
+            <a
+              href="#sobre"
+              class="group px-8 py-4 bg-brand-gold text-brand-dark font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-white transition-all duration-300"
+            >
+              Conheça o Hub
+              <i
+                data-lucide="arrow-right"
+                class="w-4 h-4 group-hover:translate-x-1 transition-transform"
+              ></i>
+            </a>
+            <a
+              href="https://wa.me/"
+              target="_blank"
+              class="px-8 py-4 border border-white text-white font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-white hover:text-brand-dark transition-all duration-300"
+            >
+              Fale no WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div
+        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block z-20"
+      >
+        <div
+          class="w-[1px] h-16 bg-gradient-to-b from-transparent via-brand-gold to-transparent"
+        ></div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <!-- Images Grid -->
+          <div class="relative reveal">
+            <div class="grid grid-cols-2 gap-4">
+              <img
+                src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=800&auto=format&fit=crop"
+                alt="Office"
+                class="rounded-sm shadow-xl w-full h-64 object-cover transform translate-y-8"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop"
+                alt="Meeting"
+                class="rounded-sm shadow-xl w-full h-64 object-cover"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&auto=format&fit=crop"
+                alt="Events"
+                class="rounded-sm shadow-xl w-full h-64 object-cover transform translate-y-8"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=800&auto=format&fit=crop"
+                alt="Lounge"
+                class="rounded-sm shadow-xl w-full h-64 object-cover"
+              />
+            </div>
+            <!-- Decorative Element -->
+            <div
+              class="absolute -z-10 -bottom-10 -left-10 w-full h-full border-2 border-brand-gold/30 rounded-sm"
+            ></div>
+          </div>
+
+          <!-- Text Content -->
+          <div>
+            <div class="reveal">
+              <h4
+                class="text-brand-blue font-bold uppercase tracking-widest text-sm mb-2"
+              >
+                Sobre o Hub
+              </h4>
+              <h2 class="font-serif text-4xl font-bold text-brand-dark mb-6">
+                Mais que um espaço, <br />um
+                <span class="text-brand-gold italic">movimento</span>.
+              </h2>
+            </div>
+
+            <div class="reveal delay-200">
+              <p class="text-slate-600 leading-relaxed mb-6">
+                O Hub Avançar é um centro completo de integração empresarial.
+                Não somos apenas um coworking ou um prédio comercial; somos um
+                organismo vivo onde empresas tradicionais, startups inovadoras e
+                profissionais de alta performance se encontram.
+              </p>
+              <p class="text-slate-600 leading-relaxed mb-8">
+                Nossa estrutura foi desenhada para potenciar resultados,
+                oferecendo desde salas privativas e auditórios modernos até
+                áreas de descompressão e estúdios profissionais.
+              </p>
+            </div>
+
+            <div class="reveal delay-300">
+              <div
+                class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-slate-200"
+              >
+                <div class="text-center">
+                  <i
+                    data-lucide="building-2"
+                    class="w-8 h-8 text-brand-gold mx-auto mb-2"
+                  ></i>
+                  <div class="font-bold text-2xl text-brand-dark">50+</div>
+                  <div class="text-xs text-slate-500 uppercase tracking-wide">
+                    Empresas
+                  </div>
+                </div>
+                <div class="text-center">
+                  <i
+                    data-lucide="users"
+                    class="w-8 h-8 text-brand-gold mx-auto mb-2"
+                  ></i>
+                  <div class="font-bold text-2xl text-brand-dark">1.2k</div>
+                  <div class="text-xs text-slate-500 uppercase tracking-wide">
+                    Membros
+                  </div>
+                </div>
+                <div class="text-center">
+                  <i
+                    data-lucide="lightbulb"
+                    class="w-8 h-8 text-brand-gold mx-auto mb-2"
+                  ></i>
+                  <div class="font-bold text-2xl text-brand-dark">20+</div>
+                  <div class="text-xs text-slate-500 uppercase tracking-wide">
+                    Startups
+                  </div>
+                </div>
+                <div class="text-center">
+                  <i
+                    data-lucide="coffee"
+                    class="w-8 h-8 text-brand-gold mx-auto mb-2"
+                  ></i>
+                  <div class="font-bold text-2xl text-brand-dark">100+</div>
+                  <div class="text-xs text-slate-500 uppercase tracking-wide">
+                    Eventos/Ano
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Ecosystem -->
+    <section id="negocios" class="py-24 bg-slate-50">
+      <div class="container mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+          <h2
+            class="font-serif text-3xl md:text-4xl font-bold text-brand-dark mb-4"
+          >
+            Ecossistema de Negócios
+          </h2>
+          <p class="text-slate-600">
+            Soluções integradas para acelerar o crescimento da sua empresa em
+            todas as frentes.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <!-- Items -->
+          <div
+            class="reveal bg-white p-6 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 border-b-2 border-transparent hover:border-brand-gold group flex flex-col items-center justify-center text-center h-40"
+          >
+            <i
+              data-lucide="briefcase"
+              class="w-8 h-8 text-slate-400 group-hover:text-brand-gold transition-colors mb-3"
+            ></i>
+            <h3 class="font-semibold text-brand-dark">Negócios</h3>
+          </div>
+          <div
+            class="reveal delay-100 bg-white p-6 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 border-b-2 border-transparent hover:border-brand-gold group flex flex-col items-center justify-center text-center h-40"
+          >
+            <i
+              data-lucide="calculator"
+              class="w-8 h-8 text-slate-400 group-hover:text-brand-gold transition-colors mb-3"
+            ></i>
+            <h3 class="font-semibold text-brand-dark">Contábil</h3>
+          </div>
+          <div
+            class="reveal delay-100 bg-white p-6 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 border-b-2 border-transparent hover:border-brand-gold group flex flex-col items-center justify-center text-center h-40"
+          >
+            <i
+              data-lucide="coins"
+              class="w-8 h-8 text-slate-400 group-hover:text-brand-gold transition-colors mb-3"
+            ></i>
+            <h3 class="font-semibold text-brand-dark">Tributário</h3>
+          </div>
+          <div
+            class="reveal delay-200 bg-white p-6 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 border-b-2 border-transparent hover:border-brand-gold group flex flex-col items-center justify-center text-center h-40"
+          >
+            <i
+              data-lucide="trending-up"
+              class="w-8 h-8 text-slate-400 group-hover:text-brand-gold transition-colors mb-3"
+            ></i>
+            <h3 class="font-semibold text-brand-dark">Financeiro</h3>
+          </div>
+          <div
+            class="reveal delay-200 bg-white p-6 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 border-b-2 border-transparent hover:border-brand-gold group flex flex-col items-center justify-center text-center h-40"
+          >
+            <i
+              data-lucide="scale"
+              class="w-8 h-8 text-slate-400 group-hover:text-brand-gold transition-colors mb-3"
+            ></i>
+            <h3 class="font-semibold text-brand-dark">Jurídico</h3>
+          </div>
+          <div
+            class="reveal delay-300 bg-white p-6 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 border-b-2 border-transparent hover:border-brand-gold group flex flex-col items-center justify-center text-center h-40"
+          >
+            <i
+              data-lucide="megaphone"
+              class="w-8 h-8 text-slate-400 group-hover:text-brand-gold transition-colors mb-3"
+            ></i>
+            <h3 class="font-semibold text-brand-dark">Marketing</h3>
+          </div>
+          <div
+            class="reveal delay-300 bg-white p-6 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 border-b-2 border-transparent hover:border-brand-gold group flex flex-col items-center justify-center text-center h-40"
+          >
+            <i
+              data-lucide="cpu"
+              class="w-8 h-8 text-slate-400 group-hover:text-brand-gold transition-colors mb-3"
+            ></i>
+            <h3 class="font-semibold text-brand-dark">Tecnologia</h3>
+          </div>
+          <div
+            class="reveal delay-400 bg-white p-6 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 border-b-2 border-transparent hover:border-brand-gold group flex flex-col items-center justify-center text-center h-40"
+          >
+            <i
+              data-lucide="presentation"
+              class="w-8 h-8 text-slate-400 group-hover:text-brand-gold transition-colors mb-3"
+            ></i>
+            <h3 class="font-semibold text-brand-dark">Vendas</h3>
+          </div>
+          <div
+            class="reveal delay-400 bg-white p-6 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 border-b-2 border-transparent hover:border-brand-gold group flex flex-col items-center justify-center text-center h-40"
+          >
+            <i
+              data-lucide="network"
+              class="w-8 h-8 text-slate-400 group-hover:text-brand-gold transition-colors mb-3"
+            ></i>
+            <h3 class="font-semibold text-brand-dark">Comunicação</h3>
+          </div>
+          <div
+            class="reveal delay-500 bg-white p-6 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 border-b-2 border-transparent hover:border-brand-gold group flex flex-col items-center justify-center text-center h-40"
+          >
+            <i
+              data-lucide="users"
+              class="w-8 h-8 text-slate-400 group-hover:text-brand-gold transition-colors mb-3"
+            ></i>
+            <h3 class="font-semibold text-brand-dark">Pessoas</h3>
+          </div>
+          <div
+            class="reveal delay-500 bg-white p-6 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 border-b-2 border-transparent hover:border-brand-gold group flex flex-col items-center justify-center text-center h-40"
+          >
+            <i
+              data-lucide="heart-handshake"
+              class="w-8 h-8 text-slate-400 group-hover:text-brand-gold transition-colors mb-3"
+            ></i>
+            <h3 class="font-semibold text-brand-dark">Cultura</h3>
+          </div>
+          <div
+            class="reveal delay-500 bg-white p-6 rounded-sm shadow-sm hover:shadow-lg transition-all duration-300 border-b-2 border-transparent hover:border-brand-gold group flex flex-col items-center justify-center text-center h-40"
+          >
+            <i
+              data-lucide="gavel"
+              class="w-8 h-8 text-slate-400 group-hover:text-brand-gold transition-colors mb-3"
+            ></i>
+            <h3 class="font-semibold text-brand-dark">Governança</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section
+      id="educacao"
+      class="relative py-24 bg-brand-dark text-white overflow-hidden"
+    >
+      <div
+        class="absolute top-0 right-0 w-1/3 h-full bg-brand-blue/20 -skew-x-12 transform translate-x-20"
+      ></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <div class="reveal">
+              <div class="flex items-center gap-3 mb-4">
+                <i
+                  data-lucide="graduation-cap"
+                  class="text-brand-gold w-8 h-8"
+                ></i>
+                <span
+                  class="text-brand-gold font-bold uppercase tracking-widest text-sm"
+                  >Educação Executiva</span
+                >
+              </div>
+              <h2 class="font-serif text-4xl font-bold mb-8">
+                Conhecimento que gera
+                <span class="text-gold-gradient italic">resultados</span>.
+              </h2>
+            </div>
+
+            <div class="space-y-4">
+              <div
+                class="reveal delay-100 flex items-center gap-4 p-4 bg-white/5 border border-white/10 hover:border-brand-gold/50 hover:bg-white/10 transition-all rounded-sm cursor-default"
+              >
+                <div class="w-2 h-2 bg-brand-gold rounded-full"></div>
+                <span class="font-medium text-lg tracking-wide"
+                  >Especialista Comportamental</span
+                >
+              </div>
+              <div
+                class="reveal delay-100 flex items-center gap-4 p-4 bg-white/5 border border-white/10 hover:border-brand-gold/50 hover:bg-white/10 transition-all rounded-sm cursor-default"
+              >
+                <div class="w-2 h-2 bg-brand-gold rounded-full"></div>
+                <span class="font-medium text-lg tracking-wide"
+                  >Comunicação e Oratória</span
+                >
+              </div>
+              <div
+                class="reveal delay-200 flex items-center gap-4 p-4 bg-white/5 border border-white/10 hover:border-brand-gold/50 hover:bg-white/10 transition-all rounded-sm cursor-default"
+              >
+                <div class="w-2 h-2 bg-brand-gold rounded-full"></div>
+                <span class="font-medium text-lg tracking-wide"
+                  >Liderança na Prática</span
+                >
+              </div>
+              <div
+                class="reveal delay-200 flex items-center gap-4 p-4 bg-white/5 border border-white/10 hover:border-brand-gold/50 hover:bg-white/10 transition-all rounded-sm cursor-default"
+              >
+                <div class="w-2 h-2 bg-brand-gold rounded-full"></div>
+                <span class="font-medium text-lg tracking-wide"
+                  >Gestão Empresarial</span
+                >
+              </div>
+              <div
+                class="reveal delay-300 flex items-center gap-4 p-4 bg-white/5 border border-white/10 hover:border-brand-gold/50 hover:bg-white/10 transition-all rounded-sm cursor-default"
+              >
+                <div class="w-2 h-2 bg-brand-gold rounded-full"></div>
+                <span class="font-medium text-lg tracking-wide"
+                  >IA para Negócios</span
+                >
+              </div>
+              <div
+                class="reveal delay-300 flex items-center gap-4 p-4 bg-white/5 border border-white/10 hover:border-brand-gold/50 hover:bg-white/10 transition-all rounded-sm cursor-default"
+              >
+                <div class="w-2 h-2 bg-brand-gold rounded-full"></div>
+                <span class="font-medium text-lg tracking-wide"
+                  >Investidor Anjo</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal delay-200">
+            <div class="relative">
+              <img
+                src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=1000&auto=format&fit=crop"
+                alt="Education"
+                class="rounded-sm shadow-2xl border-4 border-white/10"
+              />
+              <div
+                class="absolute -bottom-6 -right-6 bg-brand-gold p-6 rounded-sm shadow-lg text-brand-dark max-w-xs hidden md:block"
+              >
+                <p class="font-serif italic font-bold text-lg">
+                  "Liderança é ação, não posição."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Valey (Startups) -->
+    <section id="valey" class="py-24 bg-white relative">
+      <div
+        class="absolute inset-0 opacity-5 bg-[radial-gradient(#0f172a_1px,transparent_1px)] [background-size:16px_16px]"
+      ></div>
+      <div class="container mx-auto px-6 relative">
+        <div class="reveal text-center mb-16">
+          <div
+            class="inline-flex items-center justify-center p-3 bg-brand-blue/10 rounded-full mb-4"
+          >
+            <i data-lucide="rocket" class="text-brand-blue w-6 h-6"></i>
+          </div>
+          <h2 class="font-serif text-4xl font-bold text-brand-dark">
+            Valey Avançar
+          </h2>
+          <p class="text-slate-500 mt-2 uppercase tracking-wider font-semibold">
+            Inovação & Venture Capital
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div
+            class="reveal delay-100 group bg-slate-50 p-8 rounded-sm hover:bg-brand-dark hover:text-white transition-all duration-300 h-full border border-slate-100 hover:border-brand-dark hover:-translate-y-2 shadow-sm hover:shadow-xl"
+          >
+            <h3
+              class="text-xl font-bold mb-3 text-brand-blue group-hover:text-brand-gold"
+            >
+              Incubação
+            </h3>
+            <p class="text-slate-600 group-hover:text-gray-300">
+              Suporte inicial para tirar ideias do papel.
+            </p>
+          </div>
+          <div
+            class="reveal delay-200 group bg-slate-50 p-8 rounded-sm hover:bg-brand-dark hover:text-white transition-all duration-300 h-full border border-slate-100 hover:border-brand-dark hover:-translate-y-2 shadow-sm hover:shadow-xl"
+          >
+            <h3
+              class="text-xl font-bold mb-3 text-brand-blue group-hover:text-brand-gold"
+            >
+              Aceleração
+            </h3>
+            <p class="text-slate-600 group-hover:text-gray-300">
+              Crescimento rápido e estruturado.
+            </p>
+          </div>
+          <div
+            class="reveal delay-300 group bg-slate-50 p-8 rounded-sm hover:bg-brand-dark hover:text-white transition-all duration-300 h-full border border-slate-100 hover:border-brand-dark hover:-translate-y-2 shadow-sm hover:shadow-xl"
+          >
+            <h3
+              class="text-xl font-bold mb-3 text-brand-blue group-hover:text-brand-gold"
+            >
+              Investimento Anjo
+            </h3>
+            <p class="text-slate-600 group-hover:text-gray-300">
+              Capital inteligente para tração.
+            </p>
+          </div>
+          <div
+            class="reveal delay-400 group bg-slate-50 p-8 rounded-sm hover:bg-brand-dark hover:text-white transition-all duration-300 h-full border border-slate-100 hover:border-brand-dark hover:-translate-y-2 shadow-sm hover:shadow-xl"
+          >
+            <h3
+              class="text-xl font-bold mb-3 text-brand-blue group-hover:text-brand-gold"
+            >
+              Venture Capital
+            </h3>
+            <p class="text-slate-600 group-hover:text-gray-300">
+              Fundos para escalar globalmente.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="reveal delay-400 mt-16 relative rounded-xl overflow-hidden h-64 md:h-80 shadow-2xl"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=2000&auto=format&fit=crop"
+            alt="Startups Pitch"
+            class="w-full h-full object-cover"
+          />
+          <div
+            class="absolute inset-0 bg-black/50 flex items-center justify-center"
+          >
+            <button
+              class="bg-brand-gold text-brand-dark px-8 py-3 font-bold uppercase tracking-wider hover:scale-105 transition-transform"
+            >
+              Quero Apresentar Minha Startup
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clubs Section -->
+    <section
+      id="clubes"
+      class="py-24 bg-gradient-to-br from-neutral-900 to-neutral-800 text-white"
+    >
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16 reveal">
+          <h2 class="font-serif text-4xl font-bold text-brand-gold mb-2">
+            Clubes Exclusivos
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Networking de alto nível em ambientes estratégicos e restritos.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="reveal delay-100 relative bg-white/5 backdrop-blur-sm p-8 border border-white/10 hover:border-brand-gold transition-all duration-500 group overflow-hidden"
+          >
+            <div
+              class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"
+            >
+              <i data-lucide="crown" class="w-24 h-24"></i>
+            </div>
+            <i data-lucide="crown" class="text-brand-gold w-10 h-10 mb-6"></i>
+            <h3 class="text-2xl font-serif font-bold mb-3">Clube Avançar</h3>
+            <p class="text-gray-400 leading-relaxed">
+              A elite empresarial reunida para grandes negócios.
+            </p>
+            <a
+              href="#"
+              class="inline-block mt-6 text-xs uppercase tracking-widest text-brand-gold border-b border-brand-gold pb-1 hover:text-white hover:border-white transition-colors"
+            >
+              Saiba mais
+            </a>
+          </div>
+          <div
+            class="reveal delay-200 relative bg-white/5 backdrop-blur-sm p-8 border border-white/10 hover:border-brand-gold transition-all duration-500 group overflow-hidden"
+          >
+            <div
+              class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"
+            >
+              <i data-lucide="shield-check" class="w-24 h-24"></i>
+            </div>
+            <i
+              data-lucide="shield-check"
+              class="text-brand-gold w-10 h-10 mb-6"
+            ></i>
+            <h3 class="text-2xl font-serif font-bold mb-3">
+              Clube do Investidor
+            </h3>
+            <p class="text-gray-400 leading-relaxed">
+              Acesso a deals exclusivos e educação financeira.
+            </p>
+            <a
+              href="#"
+              class="inline-block mt-6 text-xs uppercase tracking-widest text-brand-gold border-b border-brand-gold pb-1 hover:text-white hover:border-white transition-colors"
+            >
+              Saiba mais
+            </a>
+          </div>
+          <div
+            class="reveal delay-300 relative bg-white/5 backdrop-blur-sm p-8 border border-white/10 hover:border-brand-gold transition-all duration-500 group overflow-hidden"
+          >
+            <div
+              class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity"
+            >
+              <i data-lucide="hammer" class="w-24 h-24"></i>
+            </div>
+            <i data-lucide="hammer" class="text-brand-gold w-10 h-10 mb-6"></i>
+            <h3 class="text-2xl font-serif font-bold mb-3">
+              Clube do Construtor
+            </h3>
+            <p class="text-gray-400 leading-relaxed">
+              Para players do mercado imobiliário e construção.
+            </p>
+            <a
+              href="#"
+              class="inline-block mt-6 text-xs uppercase tracking-widest text-brand-gold border-b border-brand-gold pb-1 hover:text-white hover:border-white transition-colors"
+            >
+              Saiba mais
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Arena Section -->
+    <section id="arena" class="py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div
+            class="reveal relative rounded-lg overflow-hidden shadow-2xl transform lg:rotate-2 hover:rotate-0 transition-transform duration-500"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop"
+              alt="Arena Gym"
+              class="w-full h-96 object-cover"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8"
+            >
+              <span
+                class="text-white font-bold text-xl flex items-center gap-2"
+              >
+                <i data-lucide="activity" class="text-brand-gold"></i>
+                Performance Física e Mental
+              </span>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div class="flex items-center gap-2 mb-2">
+              <i data-lucide="trophy" class="text-brand-blue"></i>
+              <span
+                class="text-brand-blue font-bold uppercase tracking-widest text-sm"
+                >Arena Avançar</span
+              >
+            </div>
+            <h2 class="font-serif text-4xl font-bold text-brand-dark mb-6">
+              Treine como um
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-blue-600"
+                >campeão</span
+              >.
+            </h2>
+            <p class="text-slate-600 mb-8 text-lg">
+              Um ambiente desenhado para quem busca excelência. Do pickleball às
+              artes marciais, aqui o corpo acompanha o ritmo da mente.
+            </p>
+
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center gap-3 text-slate-700 font-medium">
+                <div class="w-1.5 h-1.5 bg-brand-gold rounded-full"></div>
+                Treinos com personal
+              </li>
+              <li class="flex items-center gap-3 text-slate-700 font-medium">
+                <div class="w-1.5 h-1.5 bg-brand-gold rounded-full"></div>
+                Muay Thai & Jiu-Jitsu
+              </li>
+              <li class="flex items-center gap-3 text-slate-700 font-medium">
+                <div class="w-1.5 h-1.5 bg-brand-gold rounded-full"></div>
+                Quadra de Pickleball Oficial
+              </li>
+              <li class="flex items-center gap-3 text-slate-700 font-medium">
+                <div class="w-1.5 h-1.5 bg-brand-gold rounded-full"></div>
+                Vestiários Premium
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wellness Section -->
+    <section class="py-24 bg-slate-100">
+      <div class="container mx-auto px-6">
+        <div class="reveal text-center mb-16">
+          <h2 class="font-serif text-3xl font-bold text-brand-dark mb-4">
+            Qualidade de Vida Integral
+          </h2>
+          <p class="text-slate-500 italic">
+            "Alta performance começa pelo equilíbrio."
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          <div
+            class="reveal delay-100 bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center gap-3 text-center group"
+          >
+            <div
+              class="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center group-hover:bg-brand-gold/20 transition-colors"
+            >
+              <i
+                data-lucide="heart"
+                class="w-5 h-5 text-brand-dark group-hover:text-brand-gold transition-colors"
+              ></i>
+            </div>
+            <span class="font-semibold text-slate-700 text-sm">Psicólogo</span>
+          </div>
+          <div
+            class="reveal delay-200 bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center gap-3 text-center group"
+          >
+            <div
+              class="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center group-hover:bg-brand-gold/20 transition-colors"
+            >
+              <i
+                data-lucide="activity"
+                class="w-5 h-5 text-brand-dark group-hover:text-brand-gold transition-colors"
+              ></i>
+            </div>
+            <span class="font-semibold text-slate-700 text-sm"
+              >Nutricionista</span
+            >
+          </div>
+          <div
+            class="reveal delay-300 bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center gap-3 text-center group"
+          >
+            <div
+              class="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center group-hover:bg-brand-gold/20 transition-colors"
+            >
+              <i
+                data-lucide="scissors"
+                class="w-5 h-5 text-brand-dark group-hover:text-brand-gold transition-colors"
+              ></i>
+            </div>
+            <span class="font-semibold text-slate-700 text-sm">Barbearia</span>
+          </div>
+          <div
+            class="reveal delay-400 bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center gap-3 text-center group"
+          >
+            <div
+              class="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center group-hover:bg-brand-gold/20 transition-colors"
+            >
+              <i
+                data-lucide="book-open"
+                class="w-5 h-5 text-brand-dark group-hover:text-brand-gold transition-colors"
+              ></i>
+            </div>
+            <span class="font-semibold text-slate-700 text-sm">Livraria</span>
+          </div>
+          <div
+            class="reveal delay-500 bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col items-center gap-3 text-center group"
+          >
+            <div
+              class="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center group-hover:bg-brand-gold/20 transition-colors"
+            >
+              <i
+                data-lucide="coffee"
+                class="w-5 h-5 text-brand-dark group-hover:text-brand-gold transition-colors"
+              ></i>
+            </div>
+            <span class="font-semibold text-slate-700 text-sm">Cafeteria</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events & Info -->
+    <section class="py-20 bg-brand-dark text-white">
+      <div class="container mx-auto px-6">
+        <div
+          class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/10 pb-6"
+        >
+          <div class="reveal">
+            <h2 class="font-serif text-3xl font-bold">
+              Agenda <span class="text-brand-gold">Avançar</span>
+            </h2>
+            <p class="text-gray-400 mt-2">
+              Fique por dentro dos próximos encontros.
+            </p>
+          </div>
+          <div class="reveal delay-200">
+            <button
+              class="flex items-center gap-2 text-brand-gold hover:text-white transition-colors font-medium text-sm uppercase tracking-widest mt-4 md:mt-0"
+            >
+              Ver calendário completo
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="reveal delay-100 bg-white/5 border border-white/10 p-6 flex gap-4 hover:bg-white/10 transition-colors group cursor-pointer"
+          >
+            <div
+              class="flex flex-col items-center justify-center bg-brand-gold/10 w-16 h-16 rounded-sm border border-brand-gold/30 group-hover:bg-brand-gold group-hover:text-brand-dark transition-colors text-brand-gold"
+            >
+              <span class="font-bold text-xl">15</span>
+              <span class="text-xs uppercase font-medium">AGO</span>
+            </div>
+            <div>
+              <span class="text-xs text-brand-gold uppercase tracking-wide"
+                >Workshop</span
+              >
+              <h3
+                class="font-bold text-lg mt-1 group-hover:text-brand-gold transition-colors"
+              >
+                Masterclass de Liderança
+              </h3>
+            </div>
+          </div>
+          <div
+            class="reveal delay-200 bg-white/5 border border-white/10 p-6 flex gap-4 hover:bg-white/10 transition-colors group cursor-pointer"
+          >
+            <div
+              class="flex flex-col items-center justify-center bg-brand-gold/10 w-16 h-16 rounded-sm border border-brand-gold/30 group-hover:bg-brand-gold group-hover:text-brand-dark transition-colors text-brand-gold"
+            >
+              <span class="font-bold text-xl">22</span>
+              <span class="text-xs uppercase font-medium">AGO</span>
+            </div>
+            <div>
+              <span class="text-xs text-brand-gold uppercase tracking-wide"
+                >Networking</span
+              >
+              <h3
+                class="font-bold text-lg mt-1 group-hover:text-brand-gold transition-colors"
+              >
+                Café com Investidores
+              </h3>
+            </div>
+          </div>
+          <div
+            class="reveal delay-300 bg-white/5 border border-white/10 p-6 flex gap-4 hover:bg-white/10 transition-colors group cursor-pointer"
+          >
+            <div
+              class="flex flex-col items-center justify-center bg-brand-gold/10 w-16 h-16 rounded-sm border border-brand-gold/30 group-hover:bg-brand-gold group-hover:text-brand-dark transition-colors text-brand-gold"
+            >
+              <span class="font-bold text-xl">05</span>
+              <span class="text-xs uppercase font-medium">SET</span>
+            </div>
+            <div>
+              <span class="text-xs text-brand-gold uppercase tracking-wide"
+                >Palestra</span
+              >
+              <h3
+                class="font-bold text-lg mt-1 group-hover:text-brand-gold transition-colors"
+              >
+                Innovation Summit 2024
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="reveal text-center mb-16">
+          <h2 class="font-serif text-3xl font-bold text-brand-dark">
+            Quem vive o Hub
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="reveal delay-100 bg-slate-50 p-8 rounded-sm shadow-sm relative"
+          >
+            <div class="flex gap-1 text-brand-gold mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-slate-600 mb-6 italic">
+              "O ambiente elevou o nível da minha empresa. O networking aqui é
+              real e gera negócios."
+            </p>
+            <div class="flex items-center gap-4">
+              <img
+                src="https://randomuser.me/api/portraits/men/32.jpg"
+                alt="Carlos"
+                class="w-12 h-12 rounded-full object-cover"
+              />
+              <div>
+                <h4 class="font-bold text-brand-dark text-sm">
+                  Carlos Ferreira
+                </h4>
+                <span class="text-xs text-slate-500">CEO, TechSolutions</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="reveal delay-200 bg-slate-50 p-8 rounded-sm shadow-sm relative"
+          >
+            <div class="flex gap-1 text-brand-gold mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-slate-600 mb-6 italic">
+              "A infraestrutura é impecável, mas a comunidade é o verdadeiro
+              diferencial. Me sinto em casa."
+            </p>
+            <div class="flex items-center gap-4">
+              <img
+                src="https://randomuser.me/api/portraits/women/44.jpg"
+                alt="Ana"
+                class="w-12 h-12 rounded-full object-cover"
+              />
+              <div>
+                <h4 class="font-bold text-brand-dark text-sm">Ana Souza</h4>
+                <span class="text-xs text-slate-500"
+                  >Fundadora, Bloom Marketing</span
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="reveal delay-300 bg-slate-50 p-8 rounded-sm shadow-sm relative"
+          >
+            <div class="flex gap-1 text-brand-gold mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-slate-600 mb-6 italic">
+              "Os treinamentos executivos mudaram minha visão de liderança.
+              Recomendo a todos."
+            </p>
+            <div class="flex items-center gap-4">
+              <img
+                src="https://randomuser.me/api/portraits/men/85.jpg"
+                alt="Roberto"
+                class="w-12 h-12 rounded-full object-cover"
+              />
+              <div>
+                <h4 class="font-bold text-brand-dark text-sm">
+                  Roberto Mendes
+                </h4>
+                <span class="text-xs text-slate-500">Diretor Comercial</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Preview -->
+    <section class="py-20 bg-slate-50 border-t border-slate-200">
+      <div class="container mx-auto px-6">
+        <div class="flex justify-between items-center mb-10">
+          <h2 class="font-serif text-2xl font-bold text-brand-dark">
+            Conteúdo & Insights
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <article class="reveal delay-100 group cursor-pointer">
+            <div class="overflow-hidden rounded-sm mb-4">
+              <img
+                src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800&auto=format&fit=crop"
+                alt="Blog 1"
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <span
+              class="text-xs font-bold text-brand-blue uppercase tracking-wider"
+              >Tecnologia</span
+            >
+            <h3
+              class="font-bold text-lg text-brand-dark mt-2 group-hover:text-brand-gold transition-colors"
+            >
+              O impacto da IA nos negócios locais
+            </h3>
+          </article>
+          <article class="reveal delay-200 group cursor-pointer">
+            <div class="overflow-hidden rounded-sm mb-4">
+              <img
+                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop"
+                alt="Blog 2"
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <span
+              class="text-xs font-bold text-brand-blue uppercase tracking-wider"
+              >Gestão</span
+            >
+            <h3
+              class="font-bold text-lg text-brand-dark mt-2 group-hover:text-brand-gold transition-colors"
+            >
+              Liderança em tempos de crise
+            </h3>
+          </article>
+          <article class="reveal delay-300 group cursor-pointer">
+            <div class="overflow-hidden rounded-sm mb-4">
+              <img
+                src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=800&auto=format&fit=crop"
+                alt="Blog 3"
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <span
+              class="text-xs font-bold text-brand-blue uppercase tracking-wider"
+              >Startups</span
+            >
+            <h3
+              class="font-bold text-lg text-brand-dark mt-2 group-hover:text-brand-gold transition-colors"
+            >
+              Como atrair investidores anjo
+            </h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map & Contact -->
+    <section id="contato" class="bg-white">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
+        <!-- Map (Placeholder) -->
+        <div class="bg-slate-200 h-96 lg:h-auto min-h-[500px] relative">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197573426144!2d-46.65215702377054!3d-23.561348861592676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1709928374123!5m2!1spt-BR!2sbr"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="absolute inset-0 grayscale contrast-125 opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+          ></iframe>
+          <div class="absolute bottom-6 left-6 bg-white p-4 shadow-xl max-w-xs">
+            <h4 class="font-bold text-brand-dark flex items-center gap-2">
+              <i data-lucide="map-pin" class="text-brand-gold w-4 h-4"></i> Hub
+              Avançar
+            </h4>
+            <p class="text-sm text-slate-600 mt-1">
+              Av. Principal, 1000 - Centro Empresarial
+            </p>
+            <button
+              class="mt-3 text-xs font-bold uppercase text-brand-blue underline"
+            >
+              Como chegar
+            </button>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="p-12 lg:p-24 bg-brand-dark text-white">
+          <div class="reveal">
+            <h2 class="font-serif text-3xl font-bold mb-6">Fale Conosco</h2>
+            <p class="text-gray-400 mb-8">
+              Preencha o formulário abaixo ou nos chame no WhatsApp para agendar
+              uma visita.
+            </p>
+
+            <form class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <input
+                  type="text"
+                  placeholder="Nome"
+                  class="bg-white/5 border border-white/10 p-4 rounded-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-brand-gold w-full transition-colors"
+                />
+                <input
+                  type="text"
+                  placeholder="Telefone"
+                  class="bg-white/5 border border-white/10 p-4 rounded-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-brand-gold w-full transition-colors"
+                />
+              </div>
+              <input
+                type="email"
+                placeholder="Email Corporativo"
+                class="bg-white/5 border border-white/10 p-4 rounded-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-brand-gold w-full transition-colors"
+              />
+              <textarea
+                rows="4"
+                placeholder="Mensagem"
+                class="bg-white/5 border border-white/10 p-4 rounded-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-brand-gold w-full transition-colors"
+              ></textarea>
+              <button
+                type="button"
+                class="w-full bg-brand-gold text-brand-dark font-bold py-4 uppercase tracking-widest hover:bg-white transition-colors"
+              >
+                Enviar Mensagem
+              </button>
+            </form>
+
+            <div
+              class="mt-12 flex flex-col md:flex-row gap-8 border-t border-white/10 pt-8"
+            >
+              <div class="flex items-center gap-3">
+                <i data-lucide="phone" class="text-brand-gold w-5 h-5"></i>
+                <div>
+                  <span class="block text-xs text-gray-500 uppercase"
+                    >Telefone</span
+                  >
+                  <span class="font-medium">(11) 99999-9999</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="mail" class="text-brand-gold w-5 h-5"></i>
+                <div>
+                  <span class="block text-xs text-gray-500 uppercase"
+                    >Email</span
+                  >
+                  <span class="font-medium">contato@hubavancar.com.br</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div>
+            <div class="flex items-center gap-2 mb-6">
+              <div
+                class="w-8 h-8 bg-brand-gold rounded-sm flex items-center justify-center"
+              >
+                <span class="text-brand-dark font-bold text-lg">H</span>
+              </div>
+              <span class="font-serif text-xl font-bold text-white"
+                >HUB <span class="text-brand-gold">AVANÇAR</span></span
+              >
+            </div>
+            <p class="text-sm leading-relaxed mb-6">
+              O ecossistema definitivo para quem busca crescimento, inovação e
+              qualidade de vida.
+            </p>
+            <div class="flex gap-4">
+              <a href="#" class="hover:text-brand-gold transition-colors"
+                ><i data-lucide="instagram" class="w-5 h-5"></i
+              ></a>
+              <a href="#" class="hover:text-brand-gold transition-colors"
+                ><i data-lucide="linkedin" class="w-5 h-5"></i
+              ></a>
+              <a href="#" class="hover:text-brand-gold transition-colors"
+                ><i data-lucide="facebook" class="w-5 h-5"></i
+              ></a>
+            </div>
+          </div>
+
+          <div>
+            <h3
+              class="text-white font-bold uppercase tracking-widest text-sm mb-6"
+            >
+              Ecossistema
+            </h3>
+            <ul class="space-y-3 text-sm">
+              <li>
+                <a
+                  href="#negocios"
+                  class="hover:text-brand-gold transition-colors"
+                  >Negócios</a
+                >
+              </li>
+              <li>
+                <a href="#valey" class="hover:text-brand-gold transition-colors"
+                  >Startups & Inovação</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#clubes"
+                  class="hover:text-brand-gold transition-colors"
+                  >Clubes de Negócios</a
+                >
+              </li>
+              <li>
+                <a href="#arena" class="hover:text-brand-gold transition-colors"
+                  >Arena Esportiva</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3
+              class="text-white font-bold uppercase tracking-widest text-sm mb-6"
+            >
+              Institucional
+            </h3>
+            <ul class="space-y-3 text-sm">
+              <li>
+                <a href="#sobre" class="hover:text-brand-gold transition-colors"
+                  >Sobre Nós</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#educacao"
+                  class="hover:text-brand-gold transition-colors"
+                  >Educação Executiva</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-gold transition-colors"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-brand-gold transition-colors"
+                  >Carreiras</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3
+              class="text-white font-bold uppercase tracking-widest text-sm mb-6"
+            >
+              Newsletter
+            </h3>
+            <p class="text-xs mb-4">
+              Receba insights semanais sobre negócios e inovação.
+            </p>
+            <div class="flex">
+              <input
+                type="email"
+                placeholder="Seu e-mail"
+                class="bg-slate-900 border border-slate-800 p-2 text-sm w-full focus:outline-none focus:border-brand-gold"
+              />
+              <button
+                class="bg-brand-gold text-brand-dark px-4 font-bold hover:bg-white transition-colors"
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center text-xs"
+        >
+          <p>
+            &copy; <span id="year"></span> Hub Avançar. Todos os direitos
+            reservados.
+          </p>
+          <button
+            id="back-to-top"
+            class="flex items-center gap-1 hover:text-white transition-colors mt-4 md:mt-0"
+          >
+            Voltar ao topo <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/"
+      target="_blank"
+      class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center"
+      aria-label="Fale no WhatsApp"
+    >
+      <i data-lucide="message-circle" class="w-7 h-7 text-white fill-white"></i>
+    </a>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 z-[60] hidden">
+      <!-- Backdrop (Blur) -->
+      <div
+        id="mobile-menu-backdrop"
+        class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"
+      ></div>
+
+      <!-- Drawer -->
+      <div
+        id="mobile-menu-drawer"
+        class="absolute right-0 top-0 h-full w-80 bg-brand-dark shadow-2xl flex flex-col p-8 transform translate-x-full transition-transform duration-300 ease-in-out border-l border-white/10"
+      >
+        <div class="flex justify-between items-center mb-10">
+          <span class="font-serif text-xl font-bold text-white">MENU</span>
+          <button
+            id="mobile-menu-close"
+            class="text-white hover:text-brand-gold transition-colors"
+          >
+            <i data-lucide="x" class="w-8 h-8"></i>
+          </button>
+        </div>
+
+        <div class="flex flex-col space-y-6">
+          <a
+            href="#sobre"
+            class="text-white text-xl font-medium hover:text-brand-gold transition-colors mobile-link border-b border-white/5 pb-2"
+            >Sobre</a
+          >
+          <a
+            href="#negocios"
+            class="text-white text-xl font-medium hover:text-brand-gold transition-colors mobile-link border-b border-white/5 pb-2"
+            >Negócios</a
+          >
+          <a
+            href="#educacao"
+            class="text-white text-xl font-medium hover:text-brand-gold transition-colors mobile-link border-b border-white/5 pb-2"
+            >Educação</a
+          >
+          <a
+            href="#clubes"
+            class="text-white text-xl font-medium hover:text-brand-gold transition-colors mobile-link border-b border-white/5 pb-2"
+            >Clubes</a
+          >
+          <a
+            href="#valey"
+            class="text-white text-xl font-medium hover:text-brand-gold transition-colors mobile-link border-b border-white/5 pb-2"
+            >Valey</a
+          >
+          <a
+            href="#arena"
+            class="text-white text-xl font-medium hover:text-brand-gold transition-colors mobile-link border-b border-white/5 pb-2"
+            >Arena</a
+          >
+          <a
+            href="#contato"
+            class="text-white text-xl font-medium hover:text-brand-gold transition-colors mobile-link border-b border-white/5 pb-2"
+            >Contato</a
+          >
+        </div>
+
+        <div class="mt-auto pt-8">
+          <a
+            href="https://wa.me/"
+            target="_blank"
+            class="w-full bg-brand-gold text-brand-dark font-bold py-4 uppercase tracking-widest hover:bg-white transition-colors flex items-center justify-center gap-2"
+          >
+            Fale Conosco
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      // Initialize Lucide Icons
+      lucide.createIcons();
+
+      // Update Year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Navbar Scroll Effect
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add(
+            "bg-brand-dark/95",
+            "backdrop-blur-md",
+            "shadow-lg",
+            "py-3",
+          );
+          navbar.classList.remove("bg-transparent", "py-6");
+        } else {
+          navbar.classList.remove(
+            "bg-brand-dark/95",
+            "backdrop-blur-md",
+            "shadow-lg",
+            "py-3",
+          );
+          navbar.classList.add("bg-transparent", "py-6");
+        }
+      });
+
+      // Mobile Menu Logic
+      const mobileBtn = document.getElementById("mobile-menu-btn");
+      const overlay = document.getElementById("mobile-menu-overlay");
+      const backdrop = document.getElementById("mobile-menu-backdrop");
+      const drawer = document.getElementById("mobile-menu-drawer");
+      const closeBtn = document.getElementById("mobile-menu-close");
+      const mobileLinks = document.querySelectorAll(".mobile-link");
+
+      function openMenu() {
+        overlay.classList.remove("hidden");
+        // Small delay to allow display:block to apply before opacity transition
+        setTimeout(() => {
+          backdrop.classList.remove("opacity-0");
+          drawer.classList.remove("translate-x-full");
+        }, 10);
+        document.body.style.overflow = "hidden"; // Prevent scrolling
+      }
+
+      function closeMenu() {
+        backdrop.classList.add("opacity-0");
+        drawer.classList.add("translate-x-full");
+
+        // Wait for transition to finish
+        setTimeout(() => {
+          overlay.classList.add("hidden");
+          document.body.style.overflow = ""; // Restore scrolling
+        }, 300);
+      }
+
+      mobileBtn.addEventListener("click", openMenu);
+      closeBtn.addEventListener("click", closeMenu);
+      backdrop.addEventListener("click", closeMenu);
+
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
+      // Back to Top
+      document.getElementById("back-to-top").addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Reveal Animation on Scroll
+      const revealElements = document.querySelectorAll(".reveal");
+
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        },
+      );
+
+      revealElements.forEach((el) => revealObserver.observe(el));
+    </script>
+  </body>
+</html>
