@@ -385,6 +385,63 @@
       </div>
     </section>
 
+    <!-- Institutional Video Section -->
+    <section class="py-24 bg-brand-dark text-white">
+      <div class="container mx-auto px-6 text-center">
+        <div class="reveal mb-12">
+          <div class="flex items-center justify-center gap-2 mb-4">
+            <i data-lucide="play-circle" class="text-brand-gold w-6 h-6"></i>
+            <span
+              class="text-brand-gold font-bold uppercase tracking-widest text-sm"
+              >Tour Virtual</span
+            >
+          </div>
+          <h2 class="font-serif text-3xl md:text-4xl font-bold mb-6">
+            Mergulhe na Experiência <span class="text-brand-gold">Avançar</span>
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Confira nossa estrutura de ponta e sinta a energia do ecossistema
+            que está transformando negócios.
+          </p>
+        </div>
+
+        <div class="reveal delay-200 max-w-5xl mx-auto relative group">
+          <!-- Video Container (16:9 aspect ratio) -->
+          <div
+            class="aspect-video w-full rounded-sm overflow-hidden shadow-2xl border border-white/10 relative bg-black"
+          >
+            <!-- Placeholder Video (Replace src with your actual video URL) -->
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ?mute=1"
+              title="Vídeo Institucional Hub Avançar"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              allowfullscreen
+              class="absolute inset-0 w-full h-full"
+            ></iframe>
+          </div>
+
+          <!-- Decorative elements -->
+          <div
+            class="absolute -z-10 -top-6 -right-6 w-24 h-24 border-t-2 border-r-2 border-brand-gold/30 rounded-tr-3xl"
+          ></div>
+          <div
+            class="absolute -z-10 -bottom-6 -left-6 w-24 h-24 border-b-2 border-l-2 border-brand-gold/30 rounded-bl-3xl"
+          ></div>
+        </div>
+      </div>
+    </section>
+
     <!-- Business Ecosystem -->
     <section id="negocios" class="py-24 bg-slate-50">
       <div class="container mx-auto px-6">
@@ -1132,6 +1189,89 @@
       </div>
     </section>
 
+    <!-- Inauguration Video Section -->
+    <section class="py-24 bg-brand-dark relative overflow-hidden">
+      <!-- Background Pattern -->
+      <div
+        class="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:20px_20px]"
+      ></div>
+
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="reveal">
+            <div class="flex items-center gap-2 mb-4">
+              <i data-lucide="party-popper" class="text-brand-gold w-6 h-6"></i>
+              <span
+                class="text-brand-gold font-bold uppercase tracking-widest text-sm"
+                >A Grande Estreia</span
+              >
+            </div>
+            <h2
+              class="font-serif text-3xl md:text-5xl font-bold text-white mb-6"
+            >
+              O Início de uma <br />
+              <span class="text-gold-gradient italic">Nova Era</span>
+            </h2>
+            <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+              A noite de inauguração reuniu as maiores lideranças da região para
+              celebrar o futuro. Reviva os momentos marcantes deste encontro
+              histórico.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-6 text-sm text-gray-300">
+              <div class="flex items-center gap-2">
+                <div
+                  class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-brand-gold"
+                >
+                  <i data-lucide="users" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <strong class="block text-white">500+</strong>
+                  Convidados
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <div
+                  class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-brand-gold"
+                >
+                  <i data-lucide="music" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <strong class="block text-white">Show</strong>
+                  Exclusivo
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal delay-200">
+            <div
+              class="aspect-video w-full rounded-sm overflow-hidden shadow-2xl border-2 border-brand-gold/20 relative bg-black group cursor-pointer"
+            >
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ?mute=1"
+                title="Inauguração Hub Avançar"
+                frameborder="0"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                  web-share;
+                "
+                allowfullscreen
+                class="absolute inset-0 w-full h-full"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Blog Preview -->
     <section class="py-20 bg-slate-50 border-t border-slate-200">
       <div class="container mx-auto px-6">
@@ -1239,31 +1379,38 @@
               uma visita.
             </p>
 
-            <form class="space-y-6">
+            <form id="contact-form" class="space-y-6">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <input
+                  id="contact-name"
                   type="text"
                   placeholder="Nome"
+                  required
                   class="bg-white/5 border border-white/10 p-4 rounded-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-brand-gold w-full transition-colors"
                 />
                 <input
+                  id="contact-phone"
                   type="text"
                   placeholder="Telefone"
                   class="bg-white/5 border border-white/10 p-4 rounded-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-brand-gold w-full transition-colors"
                 />
               </div>
               <input
+                id="contact-email"
                 type="email"
                 placeholder="Email Corporativo"
+                required
                 class="bg-white/5 border border-white/10 p-4 rounded-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-brand-gold w-full transition-colors"
               />
               <textarea
+                id="contact-message"
                 rows="4"
                 placeholder="Mensagem"
+                required
                 class="bg-white/5 border border-white/10 p-4 rounded-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-brand-gold w-full transition-colors"
               ></textarea>
               <button
-                type="button"
+                type="submit"
                 class="w-full bg-brand-gold text-brand-dark font-bold py-4 uppercase tracking-widest hover:bg-white transition-colors"
               >
                 Enviar Mensagem
@@ -1609,6 +1756,25 @@
       );
 
       revealElements.forEach((el) => revealObserver.observe(el));
+
+      // Contact Form Handler
+      const contactForm = document.getElementById("contact-form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = document.getElementById("contact-name").value;
+          const phone = document.getElementById("contact-phone").value;
+          const email = document.getElementById("contact-email").value;
+          const message = document.getElementById("contact-message").value;
+
+          const subject = `Novo contato via site: ${name}`;
+          const body = `Nome: ${name}%0D%0ATelefone: ${phone}%0D%0AEmail: ${email}%0D%0A%0D%0AMensagem:%0D%0A${message}`;
+
+          // Open mail client
+          window.location.href = `mailto:contato@hubavancar.com.br?subject=${encodeURIComponent(subject)}&body=${body}`;
+        });
+      }
     </script>
   </body>
 </html>
